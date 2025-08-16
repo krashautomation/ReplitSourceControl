@@ -1,0 +1,377 @@
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replit Source Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'system-ui', 'sans-serif'],
+                },
+                colors: {
+                    border: 'hsl(214.3 31.8% 91.4%)',
+                    input: 'hsl(214.3 31.8% 91.4%)',
+                    ring: 'hsl(222.2 84% 4.9%)',
+                    background: 'hsl(222.2 84% 4.9%)',
+                    foreground: 'hsl(210 40% 98%)',
+                    primary: {
+                        DEFAULT: 'hsl(210 40% 98%)',
+                        foreground: 'hsl(222.2 84% 4.9%)',
+                    },
+                    secondary: {
+                        DEFAULT: 'hsl(217.2 32.6% 17.5%)',
+                        foreground: 'hsl(210 40% 98%)',
+                    },
+                    muted: {
+                        DEFAULT: 'hsl(217.2 32.6% 17.5%)',
+                        foreground: 'hsl(215 20.2% 65.1%)',
+                    },
+                    accent: {
+                        DEFAULT: 'hsl(217.2 32.6% 17.5%)',
+                        foreground: 'hsl(210 40% 98%)',
+                    },
+                    destructive: {
+                        DEFAULT: 'hsl(0 62.8% 30.6%)',
+                        foreground: 'hsl(210 40% 98%)',
+                    },
+                }
+            }
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-50 font-sans">
+    <!-- @COMPONENT: Layout -->
+    <div class="flex h-screen overflow-hidden">
+        <!-- @COMPONENT: Sidebar -->
+        <aside class="w-64 bg-slate-900 border-r border-slate-800 flex flex-col">
+            <!-- Logo and Title -->
+            <div class="p-6 border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-code-branch text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-semibold text-slate-50">Replit Source Control</h1>
+                        <p class="text-xs text-slate-400">Version Control Hub</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 p-4 space-y-2">
+                <div class="space-y-1">
+                    <button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-50 bg-slate-800 rounded-md transition-colors">
+                        <i class="fas fa-home w-4"></i>
+                        Overview
+                    </button>
+                    <button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-400 hover:text-slate-50 hover:bg-slate-800 rounded-md transition-colors">
+                        <i class="fas fa-history w-4"></i>
+                        Commits
+                    </button>
+                    <button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-400 hover:text-slate-50 hover:bg-slate-800 rounded-md transition-colors">
+                        <i class="fas fa-code-branch w-4"></i>
+                        Branches
+                    </button>
+                    <button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-400 hover:text-slate-50 hover:bg-slate-800 rounded-md transition-colors">
+                        <i class="fas fa-folder w-4"></i>
+                        Files
+                    </button>
+                    <button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-400 hover:text-slate-50 hover:bg-slate-800 rounded-md transition-colors">
+                        <i class="fas fa-git-alt w-4"></i>
+                        Pull Requests
+                    </button>
+                </div>
+
+                <div class="pt-4 border-t border-slate-800">
+                    <p class="text-xs text-slate-500 font-medium mb-2 px-3">QUICK ACTIONS</p>
+                    <button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-400 hover:text-slate-50 hover:bg-slate-800 rounded-md transition-colors">
+                        <i class="fas fa-plus w-4"></i>
+                        New Branch
+                    </button>
+                    <button class="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-400 hover:text-slate-50 hover:bg-slate-800 rounded-md transition-colors">
+                        <i class="fas fa-upload w-4"></i>
+                        Push Changes
+                    </button>
+                </div>
+            </nav>
+
+            <!-- User Profile -->
+            <div class="p-4 border-t border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <span class="text-xs font-semibold text-white">JD</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-50 truncate" data-mock="true">John Developer</p>
+                        <p class="text-xs text-slate-400 truncate" data-mock="true">john@replit.com</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- @END_COMPONENT: Sidebar -->
+
+        <!-- @COMPONENT: MainContent -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-slate-900 border-b border-slate-800 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-xl font-semibold text-slate-50" data-mock="true">my-awesome-project</h1>
+                        <p class="text-sm text-slate-400 mt-1">
+                            <span data-mock="true">main branch</span> • 
+                            <span class="text-green-400" data-mock="true">3 commits ahead</span> • 
+                            <span data-mock="true">Last updated 2 minutes ago</span>
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-slate-50 transition-colors">
+                            <i class="fas fa-star mr-2"></i>Star
+                        </button>
+                        <button class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-slate-50 transition-colors">
+                            <i class="fas fa-eye mr-2"></i>Watch
+                        </button>
+                        <button class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition-colors">
+                            <i class="fas fa-code-branch mr-2"></i>Clone
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="flex-1 overflow-auto p-6 space-y-6">
+                <!-- Repository Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="bg-slate-800 rounded-lg p-4 border border-slate-700">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-slate-50" data-mock="true">127</p>
+                                <p class="text-sm text-slate-400">Commits</p>
+                            </div>
+                            <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-history text-blue-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800 rounded-lg p-4 border border-slate-700">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-slate-50" data-mock="true">8</p>
+                                <p class="text-sm text-slate-400">Branches</p>
+                            </div>
+                            <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-code-branch text-green-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800 rounded-lg p-4 border border-slate-700">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-slate-50" data-mock="true">3</p>
+                                <p class="text-sm text-slate-400">Contributors</p>
+                            </div>
+                            <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-users text-purple-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800 rounded-lg p-4 border border-slate-700">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-slate-50" data-mock="true">42</p>
+                                <p class="text-sm text-slate-400">Files</p>
+                            </div>
+                            <div class="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-file-code text-amber-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Recent Commits -->
+                    <div class="bg-slate-800 rounded-lg border border-slate-700">
+                        <div class="p-4 border-b border-slate-700">
+                            <h2 class="text-lg font-semibold text-slate-50">Recent Commits</h2>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <!-- @MAP: commits.map(commit => ( -->
+                            <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-700/50 transition-colors" data-mock="true">
+                                <div class="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium text-slate-50 truncate">Fix navigation bug in header component</p>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        <span>john-dev</span> • <span>2 minutes ago</span> • <span class="font-mono">a7b3c9d</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-700/50 transition-colors" data-mock="true">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium text-slate-50 truncate">Add dark mode toggle functionality</p>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        <span>sarah-design</span> • <span>1 hour ago</span> • <span class="font-mono">f2e8d1a</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-700/50 transition-colors" data-mock="true">
+                                <div class="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium text-slate-50 truncate">Update README with installation instructions</p>
+                                    <p class="text-xs text-slate-400 mt-1">
+                                        <span>mike-docs</span> • <span>3 hours ago</span> • <span class="font-mono">9c4f7e2</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- @END_MAP )) -->
+                        </div>
+                        <div class="p-4 border-t border-slate-700">
+                            <button class="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                                View all commits <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Branch Status -->
+                    <div class="bg-slate-800 rounded-lg border border-slate-700">
+                        <div class="p-4 border-b border-slate-700">
+                            <h2 class="text-lg font-semibold text-slate-50">Active Branches</h2>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <!-- @MAP: branches.map(branch => ( -->
+                            <div class="flex items-center justify-between p-3 rounded-lg hover:bg-slate-700/50 transition-colors" data-mock="true">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <div>
+                                        <p class="text-sm font-medium text-slate-50">main</p>
+                                        <p class="text-xs text-slate-400">3 commits ahead</p>
+                                    </div>
+                                </div>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-900 text-green-300">
+                                    Active
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg hover:bg-slate-700/50 transition-colors" data-mock="true">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                    <div>
+                                        <p class="text-sm font-medium text-slate-50">feature/dark-mode</p>
+                                        <p class="text-xs text-slate-400">2 commits ahead</p>
+                                    </div>
+                                </div>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900 text-blue-300">
+                                    Feature
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg hover:bg-slate-700/50 transition-colors" data-mock="true">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-amber-400 rounded-full"></div>
+                                    <div>
+                                        <p class="text-sm font-medium text-slate-50">hotfix/navigation-bug</p>
+                                        <p class="text-xs text-slate-400">1 commit ahead</p>
+                                    </div>
+                                </div>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-900 text-red-300">
+                                    Hotfix
+                                </span>
+                            </div>
+                            <!-- @END_MAP )) -->
+                        </div>
+                        <div class="p-4 border-t border-slate-700">
+                            <button class="w-full px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-50 text-sm font-medium rounded-md transition-colors">
+                                <i class="fas fa-plus mr-2"></i>Create New Branch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Explorer -->
+                <div class="bg-slate-800 rounded-lg border border-slate-700">
+                    <div class="p-4 border-b border-slate-700">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-lg font-semibold text-slate-50">Repository Files</h2>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm text-slate-400" data-mock="true">main branch</span>
+                                <button class="p-1 hover:bg-slate-700 rounded">
+                                    <i class="fas fa-chevron-down text-slate-400 text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divide-y divide-slate-700">
+                        <!-- @MAP: files.map(file => ( -->
+                        <div class="flex items-center gap-3 p-4 hover:bg-slate-700/50 transition-colors" data-mock="true">
+                            <i class="fas fa-folder text-blue-400 w-4"></i>
+                            <span class="flex-1 text-sm text-slate-50">src/</span>
+                            <span class="text-xs text-slate-400">2 hours ago</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 hover:bg-slate-700/50 transition-colors" data-mock="true">
+                            <i class="fas fa-folder text-blue-400 w-4"></i>
+                            <span class="flex-1 text-sm text-slate-50">public/</span>
+                            <span class="text-xs text-slate-400">1 day ago</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 hover:bg-slate-700/50 transition-colors" data-mock="true">
+                            <i class="fas fa-file-code text-green-400 w-4"></i>
+                            <span class="flex-1 text-sm text-slate-50">package.json</span>
+                            <span class="text-xs text-slate-400">3 hours ago</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 hover:bg-slate-700/50 transition-colors" data-mock="true">
+                            <i class="fas fa-file-alt text-slate-400 w-4"></i>
+                            <span class="flex-1 text-sm text-slate-50">README.md</span>
+                            <span class="text-xs text-slate-400">3 hours ago</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 hover:bg-slate-700/50 transition-colors" data-mock="true">
+                            <i class="fas fa-file text-slate-400 w-4"></i>
+                            <span class="flex-1 text-sm text-slate-50">.gitignore</span>
+                            <span class="text-xs text-slate-400">1 week ago</span>
+                        </div>
+                        <!-- @END_MAP )) -->
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- @END_COMPONENT: MainContent -->
+    </div>
+    <!-- @END_COMPONENT: Layout -->
+
+    <script>
+        // TODO: Implement real source control functionality
+        (function() {
+            // Simple interaction handlers for demo purposes
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Visual feedback for button clicks
+                    const originalBg = this.style.backgroundColor;
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            });
+
+            // Sidebar navigation active state
+            const navButtons = document.querySelectorAll('aside nav button');
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    navButtons.forEach(btn => {
+                        btn.classList.remove('bg-slate-800', 'text-slate-50');
+                        btn.classList.add('text-slate-400');
+                    });
+                    this.classList.add('bg-slate-800', 'text-slate-50');
+                    this.classList.remove('text-slate-400');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
