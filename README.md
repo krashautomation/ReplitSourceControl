@@ -4,7 +4,7 @@ This is a full-stack web application built with a modern tech stack, featuring a
 
 ## Description
 
-This project serves as a boilerplate or starting point for building modern web applications. It includes a pre-configured set of tools and libraries for handling everything from routing and data fetching to UI components and database migrations.
+This project serves as a boilerplate or starting point for building modern web applications. It includes a pre-configured set of tools and libraries for handling everything from routing and data fetching to UI components and database migrations. This is a change.
 
 ## Tech Stack
 
